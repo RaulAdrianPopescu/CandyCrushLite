@@ -45,7 +45,7 @@ std::vector<int> TakeUserGlobeSequence()
 				break;
 			}
 
-		if (isGlobeValid && (std::stoi(globe) > 0 && std::stoi(globe) < 9))
+		if (isGlobeValid && (std::stoi(globe) >= 0 && std::stoi(globe) <= 9))
 			vectorGlobes.push_back(std::stoi(globe));
 		else
 			i--;
