@@ -25,6 +25,7 @@ bool DoesUserRetry()
 	case 'n':
 		return false;
 	default:
+		system("cls");
 		return DoesUserRetry();
 	}
 }

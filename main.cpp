@@ -9,7 +9,7 @@ int main()
         RemoveSubSequenceFromVector(userInput);
         
         if (userInput.empty())
-            std::cout << "ALL GLOBES HAVE BEEN DESTROYED!\n";
+            std::cout << "\nALL THE GLOBES HAVE BEEN DESTROYED!";
         else
         {
             std::cout << "Final Sequence: ";
