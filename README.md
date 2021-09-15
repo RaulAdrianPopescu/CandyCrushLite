@@ -11,15 +11,15 @@ While Irina is not necessarily the best at this game, she devised the following 
 
 Example:
 
-> We are provided the following sequence:
+-We are provided the following sequence:
       5 1 3 3 2 2 2 2 3 1 1 5 6 4 4 4 4 4 7
-> The sub-sequence of 4s, being the largest one of the sequence will be removed, resulting in the following sequnce:
+-The sub-sequence of 4s, being the largest one of the sequence will be removed, resulting in the following sequnce:
       5 1 3 3 2 2 2 2 3 1 1 5 6 7
-> Now, the largest sub-sequence is the one formed by 2s, after its deletion we get the following sequence:
+-Now, the largest sub-sequence is the one formed by 2s, after its deletion we get the following sequence:
       5 1 3 3 3 1 1 5 6 7
-> After the deletion of the sub-sequence made up of 2s, we now have a sub-sequence of 3s as the largest one, meaning that it will be removed:
+-After the deletion of the sub-sequence made up of 2s, we now have a sub-sequence of 3s as the largest one, meaning that it will be removed:
       5 1 1 1 5 6 7
-> Now, for the 1s:
+-Now, for the 1s:
       5 5 6 7
-> Final result:
+-In the end, our sequence will be the following:
       5 5 6 7
