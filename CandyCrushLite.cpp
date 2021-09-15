@@ -1,5 +1,14 @@
 #include "CandyCrushLite.h"
 
+void PrintVectorContents(std::vector<int>& vector)
+{
+	if (vector.empty())
+		return;
+
+	for (int i = 0; i < vector.size(); i++)
+		std::cout << vector.at(i) << ' ';
+}
+
 bool DoesUserRetry()
 {
 	char userSelection;
@@ -31,8 +40,7 @@ std::vector<int> TakeUserGlobeSequence()
 		system("cls");
 
 		std::cout << "Currently in sequence: ";
-		for (int k = 0; (!vectorGlobes.empty()) && k < vectorGlobes.size(); k++)
-			std::cout << vectorGlobes.at(k) << ' ';
+		PrintVectorContents(vectorGlobes);
 
 		std::cout << "\nInsert globe (a globe is a number between the 0-9 range, representing it's color): ";
 		std::string globe; std::cin >> globe;
@@ -57,13 +65,19 @@ std::vector<int> TakeUserGlobeSequence()
 
 int ReturnFirstIndexOfLongestSubSequence(std::vector<int> vector)
 {
-	std::vector<int> globeFrequencyVector(vector.size(), 1);
+	if (vector.empty())
+		return -1;
+
+	std::vector<int> globeFrequencyVector(vector.size(), 0);
 
 	for (int i = 0; i < vector.size(); i++)
-		if (i != (vector.size() - 1))
-			if (vector.at(i) == vector.at(i + 1))
-				for (int j = i + 1; vector.at(i) == vector.at(j); j++)
-					globeFrequencyVector.at(i)++;
+		for (int j = i; j < vector.size(); j++)
+		{
+			if (vector.at(i) == vector.at(j))
+				globeFrequencyVector.at(i)++;
+			else
+				break;
+		}
 
 	int maxIndex = 0;
 	for (int i = 0; i < globeFrequencyVector.size(); i++)
@@ -79,22 +93,40 @@ int ReturnFirstIndexOfLongestSubSequence(std::vector<int> vector)
 void RemoveSubSequenceFromVector(std::vector<int>& vector)
 {
 	int startingIndex = ReturnFirstIndexOfLongestSubSequence(vector);
-	int lastIndex = 0;
 
 	while (startingIndex != -1)
 	{
-		for (int i = startingIndex; vector.at(i) == vector.at(i + 1); i++)
-			lastIndex = i + 1;
+		int lastIndex = 0;
 
-		vector.erase(vector.begin() + startingIndex, vector.begin() + (++lastIndex));
-		startingIndex = ReturnFirstIndexOfLongestSubSequence(vector);
+		for (int i = startingIndex; i < vector.size(); i++)
+		{
+			if (i == vector.size() - 1 && vector.at(i) == vector.at(i - 1))
+				lastIndex = i;
+			else if (vector.at(i) != vector.at(i + 1))
+			{
+				lastIndex = i;
+				break;
+			}
+		}
 
-		std::cout << "SEQUENCE AFTER THE ARROW HITS: ";
-		for (int i = 0; i < vector.size(); i++)
-			std::cout << vector.at(i) << ' ';
+		std::cout << "SEQUENCE BEFORE THE ARROW HIT: ";
+		PrintVectorContents(vector);
+
+		if (lastIndex == vector.size() - 1)
+			vector.erase(vector.begin() + startingIndex, vector.end());
+		else
+			vector.erase(vector.begin() + startingIndex, vector.begin() + (++lastIndex));
+
+		if (vector.empty())
+			return;
+
+		std::cout << "\nSEQUENCE AFTER THE ARROW HIT:  ";
+		PrintVectorContents(vector);
 		
 		std::cout << "\n\nPRESS ANY KEY TO CONTIUNE...";
 		system("pause>nul");
 		system("cls");
+
+		startingIndex = ReturnFirstIndexOfLongestSubSequence(vector);
 	}
 }
