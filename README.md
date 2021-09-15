@@ -7,4 +7,4 @@ it is destroyed and the elements following that subsequence shift in its place. 
 While Irina is not necessarily the best at this game, she devised the following strategy:
 
 1. She will only fire upon the largest sub-sequence found on the screen.
-2. If there are multiple sub-sequences of the same maximal size, she will fire only on the one to the left.
+2. If there are multiple sub-sequences of the same maximal size, she will fire only on the one furthermost left.
