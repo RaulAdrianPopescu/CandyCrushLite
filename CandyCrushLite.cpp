@@ -101,7 +101,7 @@ void RemoveSubSequenceFromVector(std::vector<int>& vector)
 
 		for (int i = startingIndex; i < vector.size(); i++)
 		{
-			if (i == vector.size() - 1 && vector.at(i) == vector.at(i - 1))
+			if (i == vector.size() - 1)
 				lastIndex = i;
 			else if (vector.at(i) != vector.at(i + 1))
 			{
