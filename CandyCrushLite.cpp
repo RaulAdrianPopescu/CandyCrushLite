@@ -11,9 +11,16 @@ void PrintVectorContents(std::vector<int>& vector)
 
 bool DoesUserRetry()
 {
-	char userSelection;
-	std::cout << "\n\nWould you like to retry? Y/N\n\nResponse -> "; std::cin >> userSelection;
+	std::string input;
+	std::cout << "\n\nWould you like to retry? Y/N\n\nResponse -> "; std::cin >> input;
 
+	if (input.size() > 1)
+	{
+		system("cls");
+		return DoesUserRetry();
+	}
+
+	char userSelection = input[0];
 	switch (std::tolower(userSelection))
 	{
 	case 'Y':
