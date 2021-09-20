@@ -13,7 +13,7 @@ Example:
 
 1. We are provided the following sequence:
       >5 1 3 3 2 2 2 2 3 1 1 5 6 4 4 4 4 4 7
-2. The sub-sequence of 4s, being the largest one of the sequence will be removed, resulting in the following sequnce:
+2. The sub-sequence of 4s, being the largest one of the sequence will be removed, resulting in the following sequence:
       >5 1 3 3 2 2 2 2 3 1 1 5 6 7
 3. Now, the largest sub-sequence is the one formed by 2s, after its deletion we get the following sequence:
       >5 1 3 3 3 1 1 5 6 7
