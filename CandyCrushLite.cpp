@@ -20,7 +20,7 @@ bool DoesUserRetry()
 		return DoesUserRetry();
 	}
 
-	char userSelection = input[0];
+	char userSelection = *(input.begin());
 	switch (std::tolower(userSelection))
 	{
 	case 'Y':
@@ -104,7 +104,7 @@ void RemoveSubSequenceFromVector(std::vector<int>& vector)
 
 	while (startingIndex != -1)
 	{
-		int lastIndex = 0;
+		int lastIndex;
 
 		for (int i = startingIndex; i < vector.size(); i++)
 		{
