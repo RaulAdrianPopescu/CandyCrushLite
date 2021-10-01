@@ -15,5 +15,6 @@ int main()
             std::cout << "Final Sequence: ";
             PrintVectorContents(userInput);
         }
+
     } while (DoesUserRetry());
 }
